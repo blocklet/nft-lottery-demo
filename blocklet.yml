@@ -1,4 +1,4 @@
-name: store-demo
+name: nft-lottery-demo
 description: ABT Node blocklet project, contained a lottery game can buy gift with NFT-store
 group: static
 main: dist
@@ -17,7 +17,7 @@ interfaces:
     prefix: '*'
     port: BLOCKLET_PORT
     protocol: http
-did: z8iZoT1rT1sVeFuWq92osnpQJp43rYeQcyRwS
+did: z8iZospvSAzut95gJ1SfC7948dHPWAUgLMcMS
 community: ''
 documentation: ''
 homepage: ''
