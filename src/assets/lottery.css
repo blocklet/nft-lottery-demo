@@ -1,0 +1,621 @@
+.LotteryBox {
+  position: relative;
+}
+.lotteryBg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.drawBox {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #111;
+}
+.drawBox div {
+  text-align: center;
+  height: 33.333%;
+  overflow: hidden;
+  background: #ccc;
+}
+.drawBox div:first-of-type {
+  background: #ccc;
+}
+.drawBox div:nth-of-type(2) {
+  background: #c10;
+}
+.drawBox div:nth-of-type(3) {
+  background: #1a0;
+}
+.drawBox div:nth-of-type(4) {
+  background: #2e0;
+}
+.drawBox div:nth-of-type(5) {
+  background: #cd9;
+}
+.drawBox div:nth-of-type(6) {
+  background: #ab3;
+}
+.drawBox div:nth-of-type(7) {
+  background: #ef9;
+}
+.drawBox div:nth-of-type(8) {
+  background: #c8c;
+}
+.drawBox button {
+  outline: none;
+  background: #ed0;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+}
+.drawBox .drawCell {
+  border: 2px solid transparent;
+}
+.drawBox .drawCell.active {
+  /* background: #000; */
+  border-color: red;
+}
+.lotteryTitle {
+  font-size: 30px;
+  padding: 15px 0;
+}
+.lotteryApp {
+  padding: 30px;
+  max-width: 1000px;
+}
+.gitLinks {
+  margin: 12px 0;
+}
+.gitLinks a {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 6px;
+  background: #90ee90;
+  color: #000;
+  font-weight: 700;
+  padding: 8px 10px;
+}
+.lotteryBtn {
+  width: 50px;
+  height: 50px;
+  background: red;
+  cursor: pointer;
+  position: relative;
+  z-index: 40;
+  border-radius: 50%;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+.lotteryBtn:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent transparent red;
+  border-style: solid;
+  border-width: 0 10px 13px;
+  position: absolute;
+  left: 50%;
+  top: -9px;
+  margin-left: -10px;
+}
+.lotteryBtn2 {
+  font-size: 20px;
+  padding: 0 9px;
+  margin-bottom: 20px;
+}
+pre {
+  font-family: Monaco, Consolas, Arial, Lucida Console, Comic Sans MS, Courier New, serif;
+  font-size: 13px;
+  line-height: 21px;
+  padding: 10px 10px 10px 44px;
+  background: #272822;
+  color: #f8f8f2;
+  position: relative;
+  border: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  word-wrap: normal;
+  *padding-bottom: 20px;
+}
+.jshl-linenum {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  _left: -44px;
+  top: 10px;
+  _top: 9px;
+  line-height: inherit;
+  width: 32px;
+  border-right: 1px solid #e6db74;
+  padding-right: 2px;
+  text-align: right;
+}
+.com {
+  color: #75715e;
+}
+.doc {
+  color: #48beef;
+}
+.str {
+  color: #e6db74;
+}
+.key {
+  color: #48beef;
+  font-style: italic;
+}
+.key,
+.obj {
+  font-weight: 700;
+}
+.obj {
+  color: #ae81ff;
+}
+.num {
+  color: #f92672;
+}
+.ope {
+  color: #fd971f;
+}
+.bol {
+  color: #ff5600;
+  font-style: italic;
+}
+.mrk {
+  color: #f92665;
+}
+.attr {
+  color: #a6e22e;
+}
+.val {
+  color: #e6db74;
+}
+.flex-app,
+.flex-app *,
+[flex],
+[flex] * {
+  box-sizing: border-box;
+}
+.flex-app,
+[flex] {
+  display: -webkit-flex;
+  display: flex;
+}
+.flex-box,
+[box] {
+  -webkit-flex: 1;
+  flex: 1 1;
+}
+.flex-box-1,
+[box='1'] {
+  -webkit-flex: 0 0 8.333333%;
+  flex: 0 0 8.333333%;
+  max-width: 8.333333%;
+}
+.flex-box-2,
+[box='2'] {
+  -webkit-flex: 0 0 16.666667%;
+  flex: 0 0 16.666667%;
+  max-width: 16.666667%;
+}
+.flex-box-3,
+[box='3'] {
+  -webkit-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.flex-box-4,
+[box='4'] {
+  -webkit-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+.flex-box-5,
+[box='5'] {
+  -webkit-flex: 0 0 41.666667%;
+  flex: 0 0 41.666667%;
+  max-width: 41.666667%;
+}
+.flex-box-6,
+[box='6'] {
+  -webkit-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.flex-box-7,
+[box='7'] {
+  -webkit-flex: 0 0 58.333333%;
+  flex: 0 0 58.333333%;
+  max-width: 58.333333%;
+}
+.flex-box-8,
+[box='8'] {
+  -webkit-flex: 0 0 66.666667%;
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
+.flex-box-9,
+[box='9'] {
+  -webkit-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+.flex-box-10,
+[box='10'] {
+  -webkit-flex: 0 0 83.333333%;
+  flex: 0 0 83.333333%;
+  max-width: 83.333333%;
+}
+.flex-box-11,
+[box='11'] {
+  -webkit-flex: 0 0 91.666666%;
+  flex: 0 0 91.666666%;
+  max-width: 91.666666%;
+}
+.flex-box-12,
+[box='12'] {
+  -webkit-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.flex-dir-row,
+[dir~='row'] {
+  flex-direction: row;
+  -webkit-flex-direction: row;
+}
+.flex-dir-row-reverse,
+[dir~='row-reverse'] {
+  flex-direction: row-reverse;
+  -webkit-flex-direction: row-reverse;
+}
+.flex-dir-column,
+[dir~='column'] {
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}
+.flex-dir-column-reverse,
+[dir~='column-reverse'] {
+  flex-direction: column-reverse;
+  -webkit-flex-direction: column-reverse;
+}
+.flex-wrap-nowrap,
+[wrap~='nowrap'] {
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+}
+.flex-wrap-wrap,
+[wrap~='wrap'] {
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+.flex-wrap-reverse,
+[wrap~='wrap-reverse'] {
+  flex-wrap: wrap-reverse;
+  -webkit-flex-wrap: wrap-reverse;
+}
+.flex-justify-start,
+[justify~='start'] {
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+}
+.flex-justify-end,
+[justify~='end'] {
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+}
+.flex-justify-center,
+[justify~='center'] {
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.flex-justify-between,
+[justify~='between'] {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+.flex-justify-around,
+[justify~='around'] {
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+}
+.flex-align-start,
+[align~='start'] {
+  align-content: flex-start;
+  -webkit-align-content: flex-start;
+}
+.flex-align-end,
+[align~='end'] {
+  align-content: flex-end;
+  -webkit-align-content: flex-end;
+}
+.flex-align-center,
+[align~='center'] {
+  align-content: center;
+  -webkit-align-content: center;
+}
+.flex-align-between,
+[align~='between'] {
+  align-content: space-between;
+  -webkit-align-content: space-between;
+}
+.flex-align-around,
+[align~='around'] {
+  align-content: space-around;
+  -webkit-align-content: space-around;
+}
+.flex-align-stretch,
+[align~='stretch'] {
+  align-content: stretch;
+  -webkit-align-content: stretch;
+}
+.flex-items-start,
+[items~='start'] {
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+}
+.flex-items-end,
+[items~='end'] {
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+}
+.flex-items-center,
+[items~='center'] {
+  align-items: center;
+  -webkit-align-items: center;
+}
+.flex-items-baseline,
+[items~='baseline'] {
+  align-items: baseline;
+  -webkit-align-items: baseline;
+}
+.flex-items-stretch,
+[items~='stretch'] {
+  align-items: stretch;
+  -webkit-align-items: stretch;
+}
+.flex-order-0,
+[order='0'] {
+  order: 0;
+  -webkit-order: 0;
+}
+.flex-order-1,
+[order='1'] {
+  order: 1;
+  -webkit-order: 1;
+}
+.flex-order-2,
+[order='2'] {
+  order: 2;
+  -webkit-order: 2;
+}
+.flex-order-3,
+[order='3'] {
+  order: 3;
+  -webkit-order: 3;
+}
+.flex-order-4,
+[order='4'] {
+  order: 4;
+  -webkit-order: 4;
+}
+.flex-order-5,
+[order='5'] {
+  order: 5;
+  -webkit-order: 5;
+}
+.flex-order-6,
+[order='6'] {
+  order: 6;
+  -webkit-order: 6;
+}
+.flex-order-7,
+[order='7'] {
+  order: 7;
+  -webkit-order: 7;
+}
+.flex-order-8,
+[order='8'] {
+  order: 8;
+  -webkit-order: 8;
+}
+.flex-order-9,
+[order='9'] {
+  order: 9;
+  -webkit-order: 9;
+}
+.flex-order-10,
+[order='10'] {
+  order: 10;
+  -webkit-order: 10;
+}
+.flex-grow-0,
+[grow='0'] {
+  flex-grow: 0;
+  -webkit-flex-grow: 0;
+}
+.flex-grow-1,
+[grow='1'] {
+  flex-grow: 1;
+  -webkit-flex-grow: 1;
+}
+.flex-grow-2,
+[grow='2'] {
+  flex-grow: 2;
+  -webkit-flex-grow: 2;
+}
+.flex-grow-3,
+[grow='3'] {
+  flex-grow: 3;
+  -webkit-flex-grow: 3;
+}
+.flex-grow-4,
+[grow='4'] {
+  flex-grow: 4;
+  -webkit-flex-grow: 4;
+}
+.flex-grow-5,
+[grow='5'] {
+  flex-grow: 5;
+  -webkit-flex-grow: 5;
+}
+.flex-grow-6,
+[grow='6'] {
+  flex-grow: 6;
+  -webkit-flex-grow: 6;
+}
+.flex-grow-7,
+[grow='7'] {
+  flex-grow: 7;
+  -webkit-flex-grow: 7;
+}
+.flex-grow-8,
+[grow='8'] {
+  flex-grow: 8;
+  -webkit-flex-grow: 8;
+}
+.flex-grow-9,
+[grow='9'] {
+  flex-grow: 9;
+  -webkit-flex-grow: 9;
+}
+.flex-grow-10,
+[grow='10'] {
+  flex-grow: 10;
+  -webkit-flex-grow: 10;
+}
+.flex-shrink-0,
+[shrink='0'] {
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+}
+.flex-shrink-1,
+[shrink='1'] {
+  flex-shrink: 1;
+  -webkit-flex-shrink: 1;
+}
+.flex-shrink-2,
+[shrink='2'] {
+  flex-shrink: 2;
+  -webkit-flex-shrink: 2;
+}
+.flex-shrink-3,
+[shrink='3'] {
+  flex-shrink: 3;
+  -webkit-flex-shrink: 3;
+}
+.flex-shrink-4,
+[shrink='4'] {
+  flex-shrink: 4;
+  -webkit-flex-shrink: 4;
+}
+.flex-shrink-5,
+[shrink='5'] {
+  flex-shrink: 5;
+  -webkit-flex-shrink: 5;
+}
+.flex-shrink-6,
+[shrink='6'] {
+  flex-shrink: 6;
+  -webkit-flex-shrink: 6;
+}
+.flex-shrink-7,
+[shrink='7'] {
+  flex-shrink: 7;
+  -webkit-flex-shrink: 7;
+}
+.flex-shrink-8,
+[shrink='8'] {
+  flex-shrink: 8;
+  -webkit-flex-shrink: 8;
+}
+.flex-shrink-9,
+[shrink='9'] {
+  flex-shrink: 9;
+  -webkit-flex-shrink: 9;
+}
+.flex-shrink-10,
+[shrink='10'] {
+  flex-shrink: 10;
+  -webkit-flex-shrink: 10;
+}
+.flex-self-auto,
+[self~='auto'] {
+  align-self: auto;
+  -webkit-align-self: auto;
+}
+.flex-self-start,
+[self~='start'] {
+  align-self: flex-start;
+  -webkit-align-self: flex-start;
+}
+.flex-self-end,
+[self~='end'] {
+  align-self: flex-end;
+  -webkit-align-self: flex-end;
+}
+.flex-self-center,
+[self~='center'] {
+  align-self: center;
+  -webkit-align-self: center;
+}
+.flex-self-baseline,
+[self~='baseline'] {
+  align-self: baseline;
+  -webkit-align-self: baseline;
+}
+.flex-self-stretch,
+[self~='stretch'] {
+  align-self: stretch;
+  -webkit-align-self: stretch;
+}
+.lotteryDemo3 {
+  background: red;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.lotteryBtn3 {
+  font-size: 20px;
+  padding: 0 9px;
+  margin-bottom: 20px;
+}
+.game_wrap {
+  width: 240px;
+  height: 80px;
+  box-sizing: content-box;
+  overflow: hidden;
+  display: flex;
+  display: -webkit-flex;
+}
+.game_item {
+  height: 100%;
+  float: left;
+  margin-left: 5px;
+  -webkit-flex: 1 1;
+  flex: 1 1;
+}
+.game_item:first-child {
+  margin-left: 0;
+}
+.game_item ul {
+  height: 100%;
+  transition: all 0.3s ease;
+}
+.game_item li {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+}
