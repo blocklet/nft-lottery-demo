@@ -19,6 +19,10 @@ interfaces:
     prefix: '*'
     port: BLOCKLET_PORT
     protocol: http
+    services:
+      - name: '@abtnode/auth-service'
+        config:
+          blockUnauthenticated: true
 did: z8iZospvSAzut95gJ1SfC7948dHPWAUgLMcMS
 community: ''
 documentation: ''
