@@ -1,12 +1,13 @@
 {
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
     "clean": "rm -rf .blocklet dist",
     "bundle": "yarn clean && yarn build && blocklet bundle --zip --create-release",
-    "deploy": "BASE_URL='/.blocklet/proxy' yarn bundle && blocklet deploy .blocklet/bundle"
+    "deploy": "BASE_URL='/.blocklet/proxy' yarn bundle && blocklet deploy .blocklet/bundle",
+    "release": "yarn bundle && blocklet publish .blocklet/release/blocklet.json"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
