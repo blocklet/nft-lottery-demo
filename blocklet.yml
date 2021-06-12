@@ -1,0 +1,38 @@
+name: store-demo
+description: ABT Node blocklet project, contained a lottery game can buy gift with NFT-store
+group: static
+main: dist
+author:
+  name: zhanghan
+  email: zhanghan@arcblock.io
+specVersion: 1.1.1
+version: 1.0.0
+files:
+  - blocklet.md
+  - screenshots
+interfaces:
+  - type: web
+    name: publicUrl
+    path: /
+    prefix: '*'
+    port: BLOCKLET_PORT
+    protocol: http
+did: z8iZoT1rT1sVeFuWq92osnpQJp43rYeQcyRwS
+community: ''
+documentation: ''
+homepage: ''
+license: ''
+charging:
+  price: 0
+  tokens: []
+  shares: []
+timeout:
+  start: 60
+requirements:
+  abtnode: '>=1.2.0'
+  os: '*'
+  cpu: '*'
+environments: []
+capabilities: {}
+screenshots: []
+children: []

@@ -2,6 +2,11 @@ import { useRef, useState } from 'react';
 import { Container, AppBar, Toolbar, Typography, makeStyles, Button } from '@material-ui/core';
 import Lottery from './components/lottery';
 import './assets/lottery.css';
+import gift1 from './assets/gifts/1.svg';
+import gift2 from './assets/gifts/2.svg';
+import gift3 from './assets/gifts/3.svg';
+import gift4 from './assets/gifts/4.svg';
+import gift5 from './assets/gifts/5.svg';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -99,13 +104,13 @@ function App() {
   const [index, setIndex] = useState();
 
   const list = {
-    0: <img src="/gifts/1.svg" />,
+    0: <img src={gift1} />,
     1: 'Try again',
-    2: <img src="/gifts/2.svg" />,
-    7: <img src="/gifts/3.svg" />,
-    3: <img src="/gifts/4.svg" />,
+    2: <img src={gift2} />,
+    7: <img src={gift3} />,
+    3: <img src={gift4} />,
     6: 'Try again',
-    5: <img src="/gifts/5.svg" />,
+    5: <img src={gift5} />,
     4: 'Try again',
   };
   const price = {
