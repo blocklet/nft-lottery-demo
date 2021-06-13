@@ -60,8 +60,7 @@
   border: 2px solid transparent;
 }
 .drawBox .drawCell.active {
-  /* background: #000; */
-  border-color: red;
+  background: #000;
 }
 .lotteryTitle {
   font-size: 30px;

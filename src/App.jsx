@@ -4,6 +4,7 @@ import { useRequest } from 'ahooks';
 
 import Lottery from './components/lottery';
 import './assets/lottery.css';
+import { basename } from './libs/utils';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -13,15 +14,35 @@ const useStyles = makeStyles(() => ({
     padding: 20,
     height: '100vh',
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    '& q': {
+      background: 'rgba(135,131,120,0.15)',
+      color: '#EB5757',
+      borderRadius: '3px',
+      padding: '1px 5px',
+    },
+    '& .LotteryBox2': {
+      position: 'relative',
+      paddingTop: '100%',
+      width: '600px',
+      display: 'inline-block',
+    },
     '& .drawBox': {
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      width: '100%',
+      height: '100%',
       borderColor: '#ccc',
-      width: '60vh',
-      height: '60vh',
       maxWidth: '90vw',
       maxHeight: '90vw',
+    },
+    '& .drawCell, & .start-cell': {
+      borderRight: '2px solid #eee',
+      borderBottom: '2px solid #eee',
     },
     '& .drawCell': {
       display: 'flex',
@@ -29,9 +50,13 @@ const useStyles = makeStyles(() => ({
       justifyContent: 'center',
       padding: 30,
       backgroundColor: '#fff!important',
-      border: '1px solid #eee',
+
       fontSize: 22,
       position: 'relative',
+      '&.active': {
+        borderColor: 'red',
+        // borderWidth: 2,
+      },
       '& img': {
         height: '100%',
         width: '100%',
@@ -67,6 +92,21 @@ const useStyles = makeStyles(() => ({
       fontSize: 28,
     },
   },
+  left: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  right: {
+    width: 400,
+    marginLeft: 50,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   result: {
     width: 200,
     height: 200,
@@ -75,6 +115,7 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
     justifyContent: 'center',
     border: '1px solid #ddd',
+    backgroundColor: '#fff',
     padding: 20,
     '& img': {
       height: '100%',
@@ -92,6 +133,20 @@ const useStyles = makeStyles(() => ({
       },
     },
   },
+  rules: {
+    listStyle: 'numerical',
+    fontSize: 16,
+    lineHeight: 2,
+    margin: '20px 0px 20px 1em',
+    padding: 0,
+  },
+  game: {
+    display: 'flex',
+    padding: 50,
+    backgroundColor: '#eee',
+    borderRadius: 12,
+    overflow: 'auto',
+  },
 }));
 
 function App() {
@@ -101,7 +156,7 @@ function App() {
   const [index, setIndex] = useState();
 
   const state = useRequest(async () => {
-    const res = await fetch('/api/nft/factory');
+    const res = await fetch(`${basename}api/nft/factory`);
     const data = await res.json();
     return data;
   });
@@ -153,56 +208,89 @@ function App() {
   }
   return (
     <Container className="container">
-      <AppBar position="absolute" color="default" elevation={1}>
+      {/* <AppBar position="absolute" color="default" elevation={1}>
         <Toolbar>
           <Typography variant="h6">Blocklet Demo</Typography>
         </Toolbar>
-      </AppBar>
-      {state.data && state.data.length > 0 && (
-        <main className={classes.main}>
-          <Lottery className="lottery" itemClass="drawCell" ref={luckRef}>
-            <div className="drawBox flex-app flex-wrap-wrap">
-              {[0, 1, 2, 7].map(item => (
-                <div className="drawCell flex-box-4" data-index={item} key={item} data-price={list[item]?.price}>
-                  {getDisplay(list[item])}
+      </AppBar> */}
+      <main className={classes.main}>
+        {state.data && state.data.length > 0 && (
+          <div className={classes.game}>
+            <div className={classes.left}>
+              <Lottery className="lottery" itemClass="drawCell" ref={luckRef}>
+                <div className="drawBox flex-app flex-wrap-wrap">
+                  {[0, 1, 2, 7].map(item => (
+                    <div className="drawCell flex-box-4" data-index={item} key={item} data-price={list[item]?.price}>
+                      {getDisplay(list[item])}
+                    </div>
+                  ))}
+                  <button className="flex-box-4 start-cell" onClick={luckStart}>
+                    <div className="start-cell--btn">Start</div>
+                  </button>
+                  {[3, 6, 5, 4].map(item => (
+                    <div className="drawCell flex-box-4" data-index={item} key={item} data-price={list[item]?.price}>
+                      {getDisplay(list[item])}
+                    </div>
+                  ))}
                 </div>
-              ))}
-              <button className="flex-box-4 start-cell" onClick={luckStart}>
-                <div className="start-cell--btn">Start</div>
-              </button>
-              {[3, 6, 5, 4].map(item => (
-                <div className="drawCell flex-box-4" data-index={item} key={item} data-price={list[item]?.price}>
-                  {getDisplay(list[item])}
-                </div>
-              ))}
+              </Lottery>
             </div>
-          </Lottery>
-
-          <Typography className={classes.result}>{index !== undefined ? getDisplay(list[index]) : null}</Typography>
-          <div>
-            {index === undefined ? (
-              <Button variant="contained" color="primary" onClick={luckStart}>
-                Start
-              </Button>
-            ) : (
-              <>
-                <Button variant="contained" color="primary" onClick={luckStart}>
-                  Try again
-                </Button>
-                {Object.keys(listMap).includes(index.toString()) && (
-                  <Link
-                    href={`/store/purchase/${list[index].address}?cb=${location.href}`}
-                    style={{ textDecoration: 'none' }}>
-                    <Button variant="outlined" color="primary" style={{ marginLeft: 10 }}>
-                      Buy
+            <div className={classes.right}>
+              <div>
+                <Typography component="h3" variant="h4">
+                  NFT Lottery Game
+                </Typography>
+                <ul className={classes.rules}>
+                  <li>
+                    Click{' '}
+                    <q>
+                      <code>START</code>
+                    </q>{' '}
+                    button to start game
+                  </li>
+                  <li>
+                    You can click{' '}
+                    <q>
+                      <code>TRY AGAIN</code>
+                    </q>{' '}
+                    to restart game
+                  </li>
+                  <li>
+                    If the result is a tangram chart, you can click{' '}
+                    <q>
+                      <code>BUY</code>
+                    </q>{' '}
+                    to purchase this nft via NFT-store
+                  </li>
+                </ul>
+              </div>
+              <Typography className={classes.result}>{index !== undefined ? getDisplay(list[index]) : null}</Typography>
+              <div>
+                {index === undefined ? (
+                  <Button variant="contained" color="primary" onClick={luckStart}>
+                    Start
+                  </Button>
+                ) : (
+                  <>
+                    <Button variant="contained" color="primary" onClick={luckStart}>
+                      Try again
                     </Button>
-                  </Link>
+                    {Object.keys(listMap).includes(index.toString()) && (
+                      <Link
+                        href={`/store/purchase/${list[index].address}?cb=${location.href}`}
+                        style={{ textDecoration: 'none' }}>
+                        <Button variant="outlined" color="primary" style={{ marginLeft: 10 }}>
+                          Buy
+                        </Button>
+                      </Link>
+                    )}
+                  </>
                 )}
-              </>
-            )}
+              </div>
+            </div>
           </div>
-        </main>
-      )}
+        )}
+      </main>
     </Container>
   );
 }
