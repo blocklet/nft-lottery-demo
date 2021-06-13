@@ -204,7 +204,7 @@ function App() {
     });
   }
   function getDisplay(item) {
-    return item ? <img src={`${item.display.content}?factory=${item.address}`} /> : 'Try again';
+    return item ? <img src={`${item.display.content}?factoryDid=${item.address}`} /> : 'Try again';
   }
   return (
     <Container className="container">
