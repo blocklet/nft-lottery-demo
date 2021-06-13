@@ -1,12 +1,9 @@
-import { useRef, useState } from 'react';
-import { Container, AppBar, Toolbar, Typography, makeStyles, Button } from '@material-ui/core';
+import { useMemo, useRef, useState } from 'react';
+import { Container, AppBar, Toolbar, Typography, makeStyles, Button, Link } from '@material-ui/core';
+import { useRequest } from 'ahooks';
+
 import Lottery from './components/lottery';
 import './assets/lottery.css';
-import gift1 from './assets/gifts/1.svg';
-import gift2 from './assets/gifts/2.svg';
-import gift3 from './assets/gifts/3.svg';
-import gift4 from './assets/gifts/4.svg';
-import gift5 from './assets/gifts/5.svg';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -103,23 +100,44 @@ function App() {
   const [ing, setIng] = useState(false);
   const [index, setIndex] = useState();
 
-  const list = {
-    0: <img src={gift1} />,
-    1: 'Try again',
-    2: <img src={gift2} />,
-    7: <img src={gift3} />,
-    3: <img src={gift4} />,
-    6: 'Try again',
-    5: <img src={gift5} />,
-    4: 'Try again',
-  };
-  const price = {
-    0: '6.18 TBA',
-    2: '1.68 TBA',
-    7: '8.16 TBA',
-    3: '1.86 TBA',
-    5: '8.88 TBA',
-  };
+  const state = useRequest(async () => {
+    const res = await fetch('/api/nft/factory');
+    const data = await res.json();
+    return data;
+  });
+
+  const listMap = useMemo(() => {
+    if (state.data) {
+      return state.data.length > 4
+        ? {
+            0: 0,
+            2: 2,
+            7: 3,
+            3: 4,
+            5: 5,
+          }
+        : {
+            1: 0,
+            3: 1,
+            5: 2,
+            7: 3,
+          };
+    }
+    return {};
+  }, [state.data]);
+
+  const list = useMemo(() => {
+    if (state.data && state.data.length > 0) {
+      return Array(8)
+        .fill()
+        .map((item, index) => {
+          const targetIndex = listMap[index];
+          const temp = targetIndex !== undefined ? state.data[targetIndex] : null;
+          return temp;
+        });
+    }
+    return [];
+  }, [state.data]);
 
   function luckStart() {
     if (ing) return;
@@ -130,6 +148,9 @@ function App() {
       setIng(false);
     });
   }
+  function getDisplay(item) {
+    return item ? <img src={`${item.display.content}?factory=${item.address}`} /> : 'Try again';
+  }
   return (
     <Container className="container">
       <AppBar position="absolute" color="default" elevation={1}>
@@ -137,44 +158,51 @@ function App() {
           <Typography variant="h6">Blocklet Demo</Typography>
         </Toolbar>
       </AppBar>
-      <main className={classes.main}>
-        <Lottery className="lottery" itemClass="drawCell" ref={luckRef}>
-          <div className="drawBox flex-app flex-wrap-wrap">
-            {[0, 1, 2, 7].map(item => (
-              <div className="drawCell flex-box-4" data-index={item} key={item} data-price={price[item]}>
-                {list[item]}
-              </div>
-            ))}
-            <button className="flex-box-4 start-cell" onClick={luckStart}>
-              <div className="start-cell--btn">Start</div>
-            </button>
-            {[3, 6, 5, 4].map(item => (
-              <div className="drawCell flex-box-4" data-index={item} key={item} data-price={price[item]}>
-                {list[item]}
-              </div>
-            ))}
-          </div>
-        </Lottery>
-        <Typography className={classes.result}>{index !== undefined ? list[index] : null}</Typography>
-        <div>
-          {index === undefined ? (
-            <Button variant="contained" color="primary" onClick={luckStart}>
-              Start
-            </Button>
-          ) : (
-            <>
+      {state.data && state.data.length > 0 && (
+        <main className={classes.main}>
+          <Lottery className="lottery" itemClass="drawCell" ref={luckRef}>
+            <div className="drawBox flex-app flex-wrap-wrap">
+              {[0, 1, 2, 7].map(item => (
+                <div className="drawCell flex-box-4" data-index={item} key={item} data-price={list[item]?.price}>
+                  {getDisplay(list[item])}
+                </div>
+              ))}
+              <button className="flex-box-4 start-cell" onClick={luckStart}>
+                <div className="start-cell--btn">Start</div>
+              </button>
+              {[3, 6, 5, 4].map(item => (
+                <div className="drawCell flex-box-4" data-index={item} key={item} data-price={list[item]?.price}>
+                  {getDisplay(list[item])}
+                </div>
+              ))}
+            </div>
+          </Lottery>
+
+          <Typography className={classes.result}>{index !== undefined ? getDisplay(list[index]) : null}</Typography>
+          <div>
+            {index === undefined ? (
               <Button variant="contained" color="primary" onClick={luckStart}>
-                Try again
+                Start
               </Button>
-              {[(1, 4, 6)].includes(+index) || (
-                <Button variant="outlined" color="primary" style={{ marginLeft: 10 }}>
-                  Buy
+            ) : (
+              <>
+                <Button variant="contained" color="primary" onClick={luckStart}>
+                  Try again
                 </Button>
-              )}
-            </>
-          )}
-        </div>
-      </main>
+                {Object.keys(listMap).includes(index.toString()) && (
+                  <Link
+                    href={`/store/purchase/${list[index].address}?cb=${location.href}`}
+                    style={{ textDecoration: 'none' }}>
+                    <Button variant="outlined" color="primary" style={{ marginLeft: 10 }}>
+                      Buy
+                    </Button>
+                  </Link>
+                )}
+              </>
+            )}
+          </div>
+        </main>
+      )}
     </Container>
   );
 }

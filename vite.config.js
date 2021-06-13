@@ -7,5 +7,8 @@ export default defineConfig({
   plugins: [react({ removeDevtoolsInProd: true, injectReact: true })],
   server: {
     port: process.env.PORT || process.env.BLOCKLET_PORT,
+    proxy: {
+      '/api': 'http://localhost:3030',
+    },
   },
 });
