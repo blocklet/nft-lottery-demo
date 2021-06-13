@@ -65,7 +65,9 @@ environments:
     default: ''
     secure: false
 capabilities: {}
-screenshots: []
+screenshots:
+  - home.png
+  - lottery.png
 children:
   - name: nft-store
     resolved: >-
