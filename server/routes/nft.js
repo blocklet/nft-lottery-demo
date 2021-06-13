@@ -36,10 +36,10 @@ router.get('/config', async (req, res) => {
   res.json({ purchaseFactoryAddresses: factories });
 });
 router.get('/display', ensureFactory, async (req, res) => {
-  const { factory } = req;
+  const { factoryDid } = req;
   res.type('svg');
-  if (factory) {
-    const display = factoryDisplay[factory];
+  if (factoryDid) {
+    const display = factoryDisplay[factoryDid];
     res.send(display);
   } else {
     res.send(null);

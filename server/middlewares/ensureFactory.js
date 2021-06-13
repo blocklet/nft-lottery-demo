@@ -7,8 +7,8 @@ const env = require('../libs/env');
 const { getAccountStateOptions } = require('../libs/utils');
 
 module.exports = async (req, res, next) => {
-  if (req.query.factory) {
-    req.factory = req.query.factory;
+  if (req.query.factoryDid) {
+    req.factoryDid = req.query.factoryDid;
     next();
     return;
   }
