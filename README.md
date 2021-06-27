@@ -22,9 +22,11 @@ abtnode start
 
 ### Configure the blocklet
 
-Create `.env` file under repo root, and add `SERVER_URL=http://{YOUR_LOCAL_IP}
+Create `.env.development` file under your local repo root, and add `SERVER_URL="http://{YOUR_LOCAL_IP}"`
 
 ```shell
+# Change the following IP to your local IP
+SERVER_URL="http://192.168.123.236"
 ```
 
 ### Start the blocklet

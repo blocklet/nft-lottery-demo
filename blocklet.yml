@@ -1,15 +1,17 @@
 name: nft-lottery-demo
-description: ABT Node blocklet project, contained a lottery game can buy gift with NFT-store
+version: 1.0.1
+description: >-
+  ABT Node blocklet project, contained a lottery game can buy gift with
+  NFT-store
 group: dapp
 main: server/index.js
 logo: public/logo.png
-community: 'https://community.arcblockio.cn'
+community: ''
 support: support@arcblock.io
 author:
   name: zhanghan
   email: zhanghan@arcblock.io
 specVersion: 1.1.1
-version: 1.0.0
 files:
   - blocklet.md
   - screenshots
@@ -29,7 +31,6 @@ interfaces:
     port: BLOCKLET_PORT
     protocol: http
 did: z8iZospvSAzut95gJ1SfC7948dHPWAUgLMcMS
-community: ''
 documentation: ''
 homepage: ''
 license: ''
@@ -54,7 +55,8 @@ environments:
     required: true
     default: ''
     secure: false
-capabilities: {}
+capabilities:
+  clusterMode: false
 screenshots:
   - home.png
   - lottery.png
