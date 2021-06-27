@@ -44,24 +44,14 @@ requirements:
   os: '*'
   cpu: '*'
 environments:
-  - name: CHAIN_ID
-    description: Please provide endpoint of chain
-    required: true
-    default: ''
-    secure: false
   - name: CHAIN_HOST
     description: Please provide endpoint of chain
     required: true
-    default: ''
+    default: 'https://beta.abtnetwork.io/api/'
     secure: false
   - name: SERVER_URL
     description: Please provide server url of dapp
     required: true
-    default: ''
-    secure: false
-  - name: CONFIG_API
-    description: Please provide nft-store config
-    required: false
     default: ''
     secure: false
 capabilities: {}
