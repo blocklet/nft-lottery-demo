@@ -20,10 +20,10 @@ const walletAuth = new WalletAuthenticator({
     icon: env.appIcon || icon,
     link: baseUrl,
   }),
-  chainInfo: () => ({
+  chainInfo: {
     host: env.chainHost,
-    id: env.chainId,
-  }),
+    id: 'demo',
+  },
 });
 
 const dbOnload = (err, dbName) => {
