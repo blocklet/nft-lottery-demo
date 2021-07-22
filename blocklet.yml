@@ -63,7 +63,7 @@ screenshots:
 children:
   - name: nft-store
     resolved: >-
-      https://booster.dev.registry.arcblock.io/api/blocklets/z8iZqkCjLP6TZpR12tT3jESWxB8SGzNsx8nZa/blocklet.json
+      https://registry.arcblock.io/api/blocklets/z8iZqkCjLP6TZpR12tT3jESWxB8SGzNsx8nZa/blocklet.json
     mountPoints:
       - root:
           interfaceName: publicUrl
