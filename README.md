@@ -7,7 +7,7 @@ Blocklet that demos how to develop a simple lottery game that mint nft for winne
 ### Setup
 
 ```shell
-yarn global add @abtnode/cli
+yarn global add @blocklet/cli
 git clone git@github.com:blocklet/nft-lottery-demo.git
 cd nft-lottery-demo
 yarn
@@ -16,8 +16,8 @@ yarn
 ### Start your local node
 
 ```shell
-abtnode init -f --mode debug
-abtnode start
+blocklet server init -f --mode debug
+blocklet server start
 ```
 
 ### Configure the blocklet
