@@ -58,7 +58,7 @@ router.get('/status', ensureVc, async (req, res) => {
       issuer,
       claims: [
         {
-          id: `${env.serverUrl}`,
+          id: `${env.appUrl}`,
           type: 'navigate',
           name: 'view-blocklet',
           scope: 'public',

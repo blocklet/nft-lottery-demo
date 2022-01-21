@@ -38,7 +38,7 @@ const getTemplate = (serviceUrl = 'https://registry.arcblock.io') => ({
   },
 });
 
-const badgeOutput = getTemplate(env.serverUrl);
+const badgeOutput = getTemplate(env.appUrl);
 
 const getFactoryProps = ({
   name,

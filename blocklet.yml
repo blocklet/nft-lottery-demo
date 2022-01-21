@@ -50,11 +50,6 @@ environments:
     required: true
     default: 'https://beta.abtnetwork.io/api/'
     secure: false
-  - name: SERVER_URL
-    description: Please provide server url of dapp
-    required: true
-    default: ''
-    secure: false
 capabilities:
   clusterMode: false
 screenshots:
