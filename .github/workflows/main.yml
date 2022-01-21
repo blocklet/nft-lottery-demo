@@ -27,7 +27,7 @@ jobs:
       uses: blocklet/action-workflow@v1.1
       with:
         skip-upload: false
-        bundle-command: yarn bundle
+        bundle-command: yarn bundle:client && yarn bundle:server
         store-endpoint: ${{ secrets.STORE_ENDPOINT_DEV }}
         store-access-token: ${{ secrets.STORE_ACCESS_TOKEN_DEV }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
