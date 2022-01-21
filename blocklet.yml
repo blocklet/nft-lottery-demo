@@ -1,5 +1,5 @@
 name: nft-lottery-demo
-version: 1.0.2
+version: 1.0.3
 description: >-
   ABT Node blocklet project, contained a lottery game can buy gift with
   NFT-store
@@ -11,7 +11,7 @@ support: support@arcblock.io
 author:
   name: zhanghan
   email: zhanghan@arcblock.io
-specVersion: 1.1.1
+specVersion: 1.2.1
 files:
   - blocklet.md
   - screenshots
@@ -34,10 +34,6 @@ did: z8iZospvSAzut95gJ1SfC7948dHPWAUgLMcMS
 documentation: ''
 homepage: ''
 license: ''
-charging:
-  price: 0
-  tokens: []
-  shares: []
 timeout:
   start: 60
 requirements:
@@ -65,3 +61,6 @@ children:
           prefix: /store
         child:
           interfaceName: publicUrl
+payment:
+  price: []
+  share: []
