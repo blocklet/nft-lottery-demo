@@ -5,7 +5,7 @@ description: >-
   NFT-store
 group: dapp
 main: server/index.js
-logo: public/logo.png
+logo: logo.png
 community: ''
 support: support@arcblock.io
 author:
@@ -16,8 +16,6 @@ files:
   - blocklet.md
   - screenshots
   - dist
-  - blocklet.md
-  - README.md
   - server/hooks/pre-start.js
   - server/assets
 scripts:
