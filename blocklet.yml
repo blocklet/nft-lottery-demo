@@ -1,8 +1,7 @@
 name: nft-lottery-demo
+title: NFT Lottery Demo
 version: 1.0.4
-description: >-
-  ABT Node blocklet project, contained a lottery game can buy gift with
-  NFT-store
+description: A lottery game can buy gift with NFT-store
 group: dapp
 main: server/index.js
 logo: logo.png
