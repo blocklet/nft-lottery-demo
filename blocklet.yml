@@ -1,6 +1,6 @@
 name: nft-lottery-demo
+version: 1.0.5
 title: NFT Lottery Demo
-version: 1.0.4
 description: A lottery game can buy gift with NFT-store
 group: dapp
 main: server/index.js
