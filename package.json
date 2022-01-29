@@ -13,7 +13,7 @@
     "bundle:client": "yarn clean && BASE_URL='/.blocklet/proxy' yarn build",
     "bundle:server": "blocklet bundle --zip --create-release",
     "deploy": "yarn bundle && blocklet deploy .blocklet/bundle",
-    "release": "yarn bundle && blocklet publish .blocklet/release/blocklet.json"
+    "release": "yarn bundle && blocklet upload .blocklet/release/blocklet.json"
   },
   "dependencies": {
     "@arcblock/did-auth": "^1.14.3",
