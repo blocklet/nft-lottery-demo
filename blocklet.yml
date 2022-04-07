@@ -44,6 +44,12 @@ environments:
     default: 'https://beta.abtnetwork.io/api/'
     secure: false
     shared: true
+  - name: PAYMENT_TOKEN_ID
+    description: Which token does this marketplace accept as payment?
+    required: true
+    default: ''
+    secure: false
+    shared: true
 capabilities:
   clusterMode: false
   component: true

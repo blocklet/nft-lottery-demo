@@ -24,7 +24,7 @@ router.get('/factory', async (req, res) => {
       name: item.name,
       description: item.description,
       display,
-      price: fromBNStr(item.input.value),
+      price: fromBNStr(item.input.tokens[0].value),
       _raw: item,
     };
   });

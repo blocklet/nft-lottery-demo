@@ -4,6 +4,7 @@ const isComponent = blockletRealDid !== blockletDid;
 
 module.exports = {
   chainHost: process.env.CHAIN_HOST || '',
+  tokenId: process.env.PAYMENT_TOKEN_ID || '',
   appId: process.env.BLOCKLET_APP_ID || '',
   appName: process.env.BLOCKLET_APP_NAME || 'NFT Lottery Demo',
   appDescription:
