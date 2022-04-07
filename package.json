@@ -1,6 +1,6 @@
 {
   "name": "nft-lottery-demo",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -16,14 +16,14 @@
     "release": "yarn bundle && blocklet upload .blocklet/release/blocklet.json"
   },
   "dependencies": {
-    "@arcblock/did-auth": "^1.14.3",
+    "@arcblock/did-auth": "^1.15.7",
     "@arcblock/did-auth-storage-nedb": "^1.6.3",
-    "@arcblock/vc": "^1.14.3",
-    "@blocklet/sdk": "^1.6.15",
+    "@arcblock/vc": "^1.15.7",
+    "@blocklet/sdk": "^1.7.5",
     "@material-ui/core": "^4.11.4",
-    "@ocap/client": "^1.14.3",
-    "@ocap/mcrypto": "^1.14.3",
-    "@ocap/wallet": "^1.14.3",
+    "@ocap/client": "^1.15.7",
+    "@ocap/mcrypto": "^1.15.7",
+    "@ocap/wallet": "^1.15.7",
     "ahooks": "^2.10.6",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",

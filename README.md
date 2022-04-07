@@ -33,6 +33,17 @@ Create `.env.development` file under your local repo root, and add `SERVER_URL="
 SERVER_URL="http://192.168.123.236"
 ```
 
+Create `.env.local` file under your local repo root
+
+```shell
+PAYMENT_TOKEN_ID=“z35n6UoHSi9MED4uaQy6ozFgKPaZj2UKrurBG”
+REACT_APP_APP_NAME=“NFT Lottery Demo”
+CHAIN_HOST=“https://beta.abtnetwork.io/api”
+SERVER_URL=“http://ddns.paddings.cn”
+PAYMENT_TOKEN_ID=“z35n6UoHSi9MED4uaQy6ozFgKPaZj2UKrurBG”
+CONFIG_API=“https://50ba8217-znkidjks9e8tdu3czp4kcreoaqkbkfmsa9va.did.abtnet.io/api/nft/config”
+```
+
 ### Start the blocklet
 
 ```shell

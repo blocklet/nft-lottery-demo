@@ -1,5 +1,5 @@
 name: nft-lottery-demo
-version: 1.0.5
+version: 1.0.7
 title: NFT Lottery Demo
 description: A lottery game can buy gift with NFT-store
 group: dapp
@@ -10,7 +10,7 @@ support: support@arcblock.io
 author:
   name: zhanghan
   email: zhanghan@arcblock.io
-specVersion: 1.2.1
+specVersion: 1.2.4
 files:
   - blocklet.md
   - screenshots
@@ -43,8 +43,16 @@ environments:
     required: true
     default: 'https://beta.abtnetwork.io/api/'
     secure: false
+    shared: true
+  - name: PAYMENT_TOKEN_ID
+    description: Which token does this marketplace accept as payment?
+    required: true
+    default: ''
+    secure: false
+    shared: true
 capabilities:
   clusterMode: false
+  component: true
 screenshots:
   - home.png
   - lottery.png

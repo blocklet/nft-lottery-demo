@@ -6,6 +6,7 @@ const { toFactoryAddress } = require('@arcblock/did-util');
 const { badgeOutput, getFactoryProps } = require('./nft');
 const { wallet } = require('./auth');
 const { toBNStr } = require('./utils');
+const env = require('./env');
 
 const priceList = [1.68, 1.86, 6.18, 8.16];
 
@@ -39,9 +40,15 @@ const factoryList = priceList.map((item, index) =>
       description: `Gifts for NFT Lottery Demo (${index + 1})`,
       moniker: `LotteryNFT-${index + 1}`,
       limit: 0,
-      value: toBNStr(item),
-      tokens: [],
+      tokens: [{ address: env.tokenId, value: toBNStr(item) }],
       assets: [],
+      hooks: [
+        {
+          type: 'contract',
+          name: 'mint',
+          hook: `transferToken('${env.tokenId}', '${wallet.address}', '${toBNStr(item)}');`,
+        },
+      ],
       variables: [],
       output: badgeOutput,
       data: {
